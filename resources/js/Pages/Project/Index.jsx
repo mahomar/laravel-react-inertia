@@ -64,25 +64,25 @@ export default function index({ auth, projects, queryParams = null }) {
                                                 sort_direction={queryParams.sort_direction}
                                                 sortChanged={sortChanged}
                                             >Name</TableHeading>
-                                             <TableHeading
+                                            <TableHeading
                                                 name="status"
                                                 sort_field={queryParams.sort_field}
                                                 sort_direction={queryParams.sort_direction}
                                                 sortChanged={sortChanged}
                                             >Status</TableHeading>
-                                           <TableHeading
+                                            <TableHeading
                                                 name="created_at"
                                                 sort_field={queryParams.sort_field}
                                                 sort_direction={queryParams.sort_direction}
                                                 sortChanged={sortChanged}
                                             >Created Date</TableHeading>
-                                           <TableHeading
+                                            <TableHeading
                                                 name="due_date"
                                                 sort_field={queryParams.sort_field}
                                                 sort_direction={queryParams.sort_direction}
                                                 sortChanged={sortChanged}
                                             > Due Date</TableHeading>
-                                           
+
                                             <th className="px-3 py-3">Created By</th>
                                             <th className="px-3 py-3 text-right">Actions</th>
                                         </tr>
@@ -122,10 +122,14 @@ export default function index({ auth, projects, queryParams = null }) {
                                     <tbody>
                                         {projects.data.map(project => (
                                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={project.id}>
-                                                <th className="px-3 ppy-3">{project.id}</th>
-                                                <td className="px-3 ppy-3"><img src={project.image_path} alt="" style={{ width: 60 }} /> </td>
-                                                <td className="px-3 ppy-3">{project.name}</td>
-                                                <td className="px-3 ppy-3">
+                                                <th className="px-3 py-3">{project.id}</th>
+                                                <td className="px-3 py-3"><img src={project.image_path} alt="" style={{ width: 60 }} /> </td>
+                                                <th className="px-3 py-3 text-white text-nowarp hover:underline">
+                                                    <Link href={route("project.show", project.id)}>
+                                                        {project.name}
+                                                    </Link>
+                                                </th>
+                                                <td className="px-3 py-3">
                                                     <span className={
                                                         "px-2 py-1 rounded text-white " +
                                                         PROJECT_STATUS_CLASS_MAP[project.status]
@@ -133,10 +137,10 @@ export default function index({ auth, projects, queryParams = null }) {
                                                         {PROJECT_STATUS_TEXT_MAP[project.status]}
                                                     </span>
                                                 </td>
-                                                <td className="px-3 ppy-2 text-nowrap">{project.created_at}</td>
-                                                <td className="px-3 ppy-2 text-nowrap">{project.due_date}</td>
-                                                <td className="px-3 ppy-2">{project.createdBy.name}</td>
-                                                <td className="px-3 ppy-2">
+                                                <td className="px-3 py-2 text-nowrap">{project.created_at}</td>
+                                                <td className="px-3 py-2 text-nowrap">{project.due_date}</td>
+                                                <td className="px-3 py-2">{project.createdBy.name}</td>
+                                                <td className="px-3 py-2">
                                                     <Link href={route('project.edit', project.id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-1">
                                                         Edit
                                                     </Link>
