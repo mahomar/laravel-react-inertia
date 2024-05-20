@@ -14,6 +14,18 @@ class Task extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    protected $fillable = [
+        'name',
+        'description',
+        'image_path',
+        'status',
+        'priority',
+        'due_date',
+        'assigned_user_id',
+        'created_by',
+        'updated_by',
+        'project_id',
+    ];
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
@@ -25,10 +37,10 @@ class Task extends Model
 
     public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(User::class,'created_by');
+        return $this->belongsTo(User::class, 'created_by');
     }
     public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(User::class,'updated_by');
+        return $this->belongsTo(User::class, 'updated_by');
     }
 }

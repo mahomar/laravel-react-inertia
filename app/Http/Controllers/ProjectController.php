@@ -96,6 +96,7 @@ class ProjectController extends Controller
                 'project' => new ProjectResource($project),
                 'tasks' => TaskResource::collection($tasks),
                 'queryParams' => request()->query() ?: null,
+                'success' => session('success'),
             ]
         );
     }
@@ -142,6 +143,7 @@ class ProjectController extends Controller
         if ($project->image_path){
             Storage::disk('public')->deleteDirectory(dirname($project->image_path));
         }
-        return to_route('project.index')->with('success','Project ' . $name . ' was deleted successfully!');
+        return to_route('project.index')
+        ->with('success','Project ' . $name . ' was deleted successfully!');
     }
 }
