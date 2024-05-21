@@ -139,7 +139,7 @@ export default function TasksTable({ tasks, success, queryParams = null, hidePro
                                 </th>
 
 
-                                <td className="px-3 ppy-3">
+                                <td className="px-3 py-3">
                                     <span className={
                                         "px-2 py-1 rounded text-white " +
                                         TASK_STATUS_CLASS_MAP[task.status]
@@ -147,10 +147,10 @@ export default function TasksTable({ tasks, success, queryParams = null, hidePro
                                         {TASK_STATUS_TEXT_MAP[task.status]}
                                     </span>
                                 </td>
-                                <td className="px-3 ppy-2 text-nowrap">{task.created_at}</td>
-                                <td className="px-3 ppy-2 text-nowrap">{task.due_date}</td>
-                                <td className="px-3 ppy-2">{task.createdBy.name}</td>
-                                <td className="px-3 ppy-2 text-nowrap">
+                                <td className="px-3 py-2 text-nowrap">{task.created_at}</td>
+                                <td className="px-3 py-2 text-nowrap">{task.due_date}</td>
+                                <td className="px-3 py-2">{task.createdBy.name}</td>
+                                <td className="px-3 py-2 text-nowrap">
                                     <Link href={route('task.edit', task.id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-1">
                                         Edit
                                     </Link>
