@@ -9,4 +9,5 @@ composer require laravel/breeze --dev
 php artisan breeze:install
 > type of Breeze : react
 > dark
-> 
+>
+> php artisan migrate --seed
